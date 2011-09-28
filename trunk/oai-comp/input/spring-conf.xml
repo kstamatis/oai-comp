@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TEST-SPRING.XML -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="transformationEngine" class="gr.ekt.transformationengine.core.OAITransformationEngine">
+		<property name="dataLoader" ref="dataLoader" />
+		<property name="workflow" ref="conjunctionTransformationWorkflow"/>
+		<property name="outputGenerator" ref="outputGenerator" />
+	</bean>
+
+	<bean id="dataLoader" class="gr.ekt.transformationengine.dataloaders.DSpaceDataLoader">
+		<property name="loadingSpec" ref="initialLoadingSpec"/>
+		<property name="configFile" value="./input/dspace.cfg"/>
+	</bean>
+	
+	<bean id="initialLoadingSpec" class="gr.ekt.transformationengine.dataloaders.OAIDataLoadingSpec">
+		<property name="maxRecords" value="100"/>
+		<property name="startRecord" value="0"/>
+	</bean>
+	
+	<bean id="conjunctionTransformationWorkflow" class="gr.ekt.transformationengine.core.ConjunctionTransformationWorkflow">
+		<property name="steps">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="outputGenerator" class="gr.ekt.transformationengine.outputgenerators.OAIDCXMLStringOutputGenerator">
+	</bean>
+
+	
+</beans>
