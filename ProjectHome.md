@@ -1,0 +1,5 @@
+The oai-comp library is a tool that allows content providers to provide OAI-PMH enabled feeds for their metadata sources. Given the fact that many organisations are not able to provide their metadata in an OAI-PMH format, this tool is very useful for enabling OAI harvesting of their metadata that can be used by harvesters feeding Europeana.
+
+![http://oai-comp.googlecode.com/files/OAIComp_Architecture.jpg](http://oai-comp.googlecode.com/files/OAIComp_Architecture.jpg)
+
+It is actually an implementation of the Biblio Transformation Engine Tool (http://code.google.com/p/biblio-transformation-engine/) along with a sample oai webapp application (based on OCLC OAI server) that combined together provide OAI-PMH feeds to a DSpace repository and a Z39-50 server. However, user can extend functionality to support other legacy data sources.
